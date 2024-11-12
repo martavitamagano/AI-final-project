@@ -19,6 +19,10 @@ let context = "You are an expert on food, and love to write the best recipes for
 let prompt = `User instructions: Generate a delicious recipe about ${instructionsInput.value}`;
 let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+let recipeElement = document.querySelector("#recipe");
+recipeElement.classList.remove("hidden");
+recipeElement.innerHTML = `<div class="generating">⏳ Generating a French poem about ${instructionsInput.value}</div>`;
+
 axios.get(apiURL).then(displayRecipe);
 
 
